@@ -9,9 +9,9 @@ CASE
 WHEN DAYNAME(TO_TIMESTAMP(STARTED_AT)) in ('Sat','Sun')
 THEN 'WEEKEND'
 ELSE 'BUSINESSDAY'
-END AS DAY_TYPE,
+END AS DAY_TYPE
 
-{{get_season('START_DATE')}} AS STATION_OF_YEAR,
+--{{get_season(STARTED_AT)}} AS STATION_OF_YEAR
  
 FROM
 {{ source('demo','bike')}}

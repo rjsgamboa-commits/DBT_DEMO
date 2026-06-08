@@ -11,8 +11,8 @@ THEN 'WEEKEND'
 ELSE 'BUSINESSDAY'
 END AS DAY_TYPE
 
---{{get_season(STARTED_AT)}} AS STATION_OF_YEAR
- 
+/*{{get_season(STARTED_AT)}} AS STATION_OF_YEAR
+ */
 FROM
 {{ source('demo','bike')}}
 where started_at != 'started_at'

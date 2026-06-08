@@ -1,14 +1,14 @@
 {% macro function_past(x) %}
-CASE WHEN TO_TIMESTAMP({x})) < CURRENT_DATE THEN 'PAST'
+CASE WHEN TO_TIMESTAMP({{x}})) < CURRENT_DATE THEN 'PAST'
 ELSE 'FUTURE' END
 {% endmacro %}
 
-{% macro get_season(x) %}
-CASE WHEN MONTH(TO_TIMESTAMP({x})) in (12,1,2)
+{% macro get_season(var) %}
+CASE WHEN MONTH(TO_TIMESTAMP({{var}})) in (12,1,2)
 THEN 'WINTER'
-WHEN MONTH(TO_TIMESTAMP({x})) in (3,4,5)
+WHEN MONTH(TO_TIMESTAMP({{var}})) in (3,4,5)
 THEN 'SPRING'
-WHEN MONTH(TO_TIMESTAMP({x})) in (6,7,8)
+WHEN MONTH(TO_TIMESTAMP({{var}})) in (6,7,8)
 THEN 'SUMMER'
 ELSE 'AUTUMN'
  END 
